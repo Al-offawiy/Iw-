@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/bootstrap.css">
+    <title>Iwè | <%=pageTitle%>
+</head>
+<body>
+    <header>
+        <h1> Update note </h1>
+    </header> 
+    <main>
+     <form action="/iwe/update/:id" method="put">
+         <input type="text" placeholder="Enter the title" name="title" required><br>
+         <input type="text"  placeholder="Enter the content" name="content" required><br>
+         <input type="submit">
+    </form>
+    </main>
+    <footer>copyright &copy; الأوفوي  2023</footer> 
+</body>
+</html>

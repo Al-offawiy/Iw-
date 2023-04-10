@@ -1,0 +1,16 @@
+body{
+	
+	background-size: cover;
+}
+
+button{ color: purple;
+	display: block;
+	list-style:inline;
+
+}
+
+
+header{
+	background-color:green;
+
+}

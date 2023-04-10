@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/bootstrap.css">
+    <title>Iwè | <%=pageTitle%></title>
+</head>
+<body>
+    <main>
+    <strong><p class="title">  <%= oneNote.title %></p></strong>
+   <em> <p class="content">  <%= oneNote.content %></p></em>
+      <button class="update"> <a href="/iwe/update/<%= oneNote._id %>" name="update">update</a> </button>  
+     <button name = "delNote"> <a class = "delete" data-doc= "<%= oneNote._id %>" >delete</a></button>
+     </main><br><br>
+     <footer>copyright &copy; الأوفوي  2023</footer>
+</body>
+<script> 
+
+    const delReq = document.querySelector('a.delete')
+    
+    delReq.addEventListener('click',  (e) => {
+
+      const delApi =`/iwe/${delReq.dataset.doc}`;
+      
+    fetch(delApi,{
+      method:'DELETE'
+    })
+    
+  location.assign('/'); 
+    
+    })
+    </script>
+</html>
