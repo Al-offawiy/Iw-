@@ -1,1 +1,1 @@
-# Iwe- ia a note application where you can create,read and update notes
+# Iwe- is note application where you can create,read and update notes
