@@ -4,20 +4,72 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/bootstrap.css">
-    <title>Iwè | <%=pageTitle%>
+    <style>
+        body {
+      background-color: lightcyan;
+      background-size: cover;
+  }
+  
+  header {
+  background-color: darkblue;
+      text-align: center;
+      color: white
+  }
+  footer{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: sticky;
+      text-align: center;
+      font-size: 15px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+  }
+  
+      </style>
+        <title>Iwè | <%=pageTitle%> </title>
+        
 </head>
 <body>
     <header>
         <h1> Update note </h1>
     </header> 
     <main>
-     <form action="/iwe/update/:id" method="put">
-         <input type="text" placeholder="Enter the title" name="title" required><br>
-         <input type="text"  placeholder="Enter the content" name="content" required><br>
-         <input type="submit">
+     <form action="/update/:id" method="put">
+         <input type="text" placeholder="Enter the title" name="title" required><br><br>
+         <input type="text"  placeholder="Enter the content" style="width: 90%;height: 300px;"  name="content" required><br><br>
+        <input class="subtnote" type="submit">
     </form>
     </main>
     <footer>copyright &copy; الأوفوي  2023</footer> 
 </body>
+<script>
+    const form = document.querySelector('form')
+    form.addEventListener('submit', async (e) =>{
+     e.preventDefault();  
+   
+
+    const title = form.title.value;
+    const content = form.content.value;
+   
+try {
+  const res = await fetch ('/update/', { 
+       method:'PUT',
+        body:JSON.stringify({title,content}),
+        headers:{'Content-Type':'application/json'}
+    }) 
+    const data = await res.json()
+    console.log(data)
+
+if(data){
+location.assign('/')
+}
+} 
+catch (error) {
+  console.log("error")  
+} 
+
+})
+</script>
 </html>

@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/bootstrap.css">
     <title>Iwè | <%=pageTitle%></title>
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+   
 </head>
 <body>
    <header>
        <h1> Add note</h1>
    </header> 
    <main class="addNote">
-    <form action="/iwe/addNote" method="post">
-        <input type="text" placeholder="Enter the title" name="title" required><br>
-        <input type="text"  placeholder="Enter the content" name="content" required><br>
-        <input type="submit">
+    <form action="/addNote" method="post"><br><br>
+        <input type="text" placeholder="Enter the title" name="title" required><br><br>
+        <input class="notecontent" type="text"  placeholder="Enter the content" name="content" style="width: 90%;height: 300px;" required><br><br>
+        <input class="subtnote" type="submit">
    </form>
    </main>
    <footer>copyright &copy; الأوفوي  2023</footer>

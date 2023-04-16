@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/bootstrap.css">
+    
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
     <title><%=pageTitle%></title>
 </head>
 <body>
@@ -12,13 +13,13 @@
      <h1>Iwé</h1> 
     </header>
     
-    <main class="index">
+    <main>
         <ul>
 
            <% if(allNotes.length>0){ %>
             <% allNotes.forEach(note => { %>
-                <a class="id" href="/iwe/<%=note._id%>">
-                <p><%=note.title %></p>
+                <a class="id" href="/iwe/<%=note.id%>">
+                <p class="noteTitles"><%=note.title %></p>
             </a><hr>
            <% })%>
            <% } else{ %>
@@ -26,7 +27,7 @@
         <% } %>
         
      </ul> <br><br>
-    <button><a class="addNote" href="/iwe/addNote"> Add note</a></button>
+    <button class="addbtn"><a class="addNote" href="/addNote"> Add note</a></button>
     </main><br>
  
     <footer>copyright &copy; الأوفوي  2023</footer>

@@ -4,15 +4,44 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/bootstrap.css">
+   
+    <style>
+      body {
+	background-color: lightcyan;
+	background-size: cover;
+}
+
+header {
+background-color: darkblue;
+	text-align: center;
+	color: white
+}
+footer{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: sticky;
+	text-align: center;
+	font-size: 15px;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
+
+    </style>
     <title>Iwè | <%=pageTitle%></title>
+   
 </head>
 <body>
+  <header>
+    <h1>Note content</h1>
+  </header>
+
     <main>
     <strong><p class="title">  <%= oneNote.title %></p></strong>
    <em> <p class="content">  <%= oneNote.content %></p></em>
-      <button class="update"> <a href="/iwe/update/<%= oneNote._id %>" name="update">update</a> </button>  
-     <button name = "delNote"> <a class = "delete" data-doc= "<%= oneNote._id %>" >delete</a></button>
+      <button class="update"> <a href="/update/<%= oneNote.id %>" name="update">update</a> </button>  
+     <button name = "delNote"> <a class = "delete" data-doc= "<%= oneNote.id %>" >delete</a></button>
      </main><br><br>
      <footer>copyright &copy; الأوفوي  2023</footer>
 </body>
@@ -20,16 +49,27 @@
 
     const delReq = document.querySelector('a.delete')
     
-    delReq.addEventListener('click',  (e) => {
+    delReq.addEventListener('click', async (e) => {
 
       const delApi =`/iwe/${delReq.dataset.doc}`;
       
-    fetch(delApi,{
+    
+    try {
+  const res = await fetch(delApi,{
       method:'DELETE'
     })
-    
-  location.assign('/'); 
-    
+
+    const data = await res.json()
+    console.log(data)
+
+if(data){
+location.assign('/')
+}
+} 
+catch (error) {
+  console.log("error")  
+} 
+  
     })
     </script>
 </html>
