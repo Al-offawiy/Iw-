@@ -54,7 +54,7 @@
     const content = form.content.value;
    
 try {
-  const res = await fetch ('/update/id', { 
+  const res = await fetch ('/update/id/${id}', { 
        method:'PUT',
         body:JSON.stringify({title,content}),
         headers:{'Content-Type':'application/json'}
